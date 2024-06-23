@@ -4,10 +4,32 @@ import { HiSearchCircle } from "react-icons/hi";
 import { HiUserCircle } from "react-icons/hi";
 import { IoIosCart } from "react-icons/io";
 import { Link } from 'react-router-dom';
-
-
+import { useSelector } from 'react-redux';
+import SummaryApi from '../common';
+import { toast } from 'react-toastify';
 
 const Header = () => {
+  const user = useSelector(state => state?.user)
+
+  console.log("user header", user);
+
+  const handleLogout = async () => {
+    const fetchData = await fetch(SummaryApi.logout_user.url, {
+      method: SummaryApi.logout_user.method,
+      credentials: 'include'
+    })
+
+    const data = await fetchData.json()
+
+    if (data.success) {
+      toast.success(data.message)
+    }
+
+    if (data.error) {
+      toast.error(data.message)
+    }
+  }
+
   return (
     <header className='h-16 shadow-md bg-slate-200'>
       <div className='h-full container mx-auto flex items-center px-4 justify-between'>
@@ -26,7 +48,14 @@ const Header = () => {
 
         <div className='flex items-center gap-3'>
           <div className='text-3xl cursor-pointer'>
-            <HiUserCircle />
+            {
+              user?.profilePic ? (
+                <img src={user?.profilePic} className='w-10 h-10 rounded-full' alt={user?.name} />
+
+              ) : (
+                <HiUserCircle />
+              )
+            }
           </div>
 
           <div className='text-2xl relative cursor-pointer'>
@@ -37,7 +66,15 @@ const Header = () => {
           </div>
 
           <div>
+            {
+              user?._id ? (
+                <button>Logout</button>
+              )
+              : (
             <Link to={"/login"} className='bg-red-300 text-white py-1 px-4 rounded-full hover:bg-red-600'>Login</Link>
+             )
+            }
+
           </div>
 
         </div>
