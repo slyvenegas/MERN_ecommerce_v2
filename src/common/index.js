@@ -16,7 +16,12 @@ const SummaryApi = {
     logout_user : {
         url : `${backendDomin}/api/userLogout`,
         method : "GET"
+    },
+    allUser : {
+        url : `${backendDomin}/api/all-users`,
+        method : "GET"
     }
 }
 
 export default SummaryApi
+

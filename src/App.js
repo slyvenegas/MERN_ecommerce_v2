@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useEffect } from 'react';
 import SummaryApi from './common';
 import Context from './context';
-import { setUserDetail } from './store/userSlice';
+import { setUserDetails } from './store/userSlice';
 import { useDispatch } from 'react-redux';
 
 
@@ -25,10 +25,10 @@ function App() {
     const dataApi = await dataResponse.json()
 
     if (dataApi.success) {
-      dispatch(setUserDetail(dataApi.data))
+      dispatch(setUserDetails(dataApi.data))
     }
 
-    console.log("data-user", dataResponse)
+    // console.log("data-user", dataResponse)
   }
 
   useEffect(() => {
@@ -43,7 +43,7 @@ function App() {
       }}>
         <ToastContainer />
         <Header />
-        <main className='min-h-[calc(100vh-120px)]'>
+        <main className='pt-16 min-h-[calc(100vh-120px)]'>
           <Outlet />
         </main>
         <Footer />

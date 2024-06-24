@@ -3,7 +3,7 @@ import userReducer from './userSlice'; // Asegúrate de que la ruta sea correcta
 
 export const store = configureStore({
   reducer: {
-    user: userReducer, // Usa el reducer de userSlice
+    user: userReducer
   },
 });
 
