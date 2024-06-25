@@ -1,6 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import SummaryApi from '../common'
-import { toast } from 'react-toastify'
+import React, { useEffect, useState } from 'react';
+import SummaryApi from '../common';
+import { toast } from 'react-toastify';
+import moment from 'moment';
+import { FaEdit } from "react-icons/fa";
+import ChangeUserRole from '../components/ChangeUserRole';
 
 const AllUsers = () => {
   const [allUser, setAllUsers] = useState([])
@@ -33,7 +36,7 @@ const AllUsers = () => {
 
   return (
     <div className='bg-slate-100 pb-4'>
-      <table className='w-full userTable text-base font-medium'>
+      <table className='w-full userTable'>
         <thead>
           <tr>
             <th>Sr.</th>
@@ -41,6 +44,7 @@ const AllUsers = () => {
             <th>Email</th>
             <th>Role</th>
             <th>Created Date</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -52,13 +56,21 @@ const AllUsers = () => {
                   <td >{el?.name}</td>
                   <td >{el?.email}</td>
                   <td >{el?.role}</td>
-                  <td >{el?.createdAt}</td>
+                  <td >{moment(el?.createdAt).format('LL')}</td>
+                  <td>
+                    <button className='bg-blue-200 p-3 rounded-full cursor-pointer hover:bg-blue-500 hover:text-white'>
+                      <FaEdit />
+                    </button>
+
+                  </td>
                 </tr>
               )
             })
           }
         </tbody>
       </table>
+
+      <ChangeUserRole/>
     </div>
   )
 }

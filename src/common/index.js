@@ -20,7 +20,11 @@ const SummaryApi = {
     allUser : {
         url : `${backendDomin}/api/all-users`,
         method : "GET"
-    }
+    },
+    updateUser : {
+        url : `${backendDomin}/api/update-user`,
+        method : "POST"
+    },
 }
 
 export default SummaryApi
