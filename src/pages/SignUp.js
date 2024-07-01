@@ -38,7 +38,11 @@ const SignUp = () => {
       ...prev,
       profilePic: imagePic
     }));
+
+    console.log(data)
   };
+
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();

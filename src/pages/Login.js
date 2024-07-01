@@ -47,6 +47,8 @@ const Login = () => {
 
       const dataApi = await dataResponse.json();
 
+      console.log(data.fetchUserDetails)
+
       console.log("Respuesta del servidor:", dataApi);
 
       if (dataApi.success) {
