@@ -1,31 +1,39 @@
 const backendDomin = "http://localhost:8080"
 
 const SummaryApi = {
-    signUp : {
+    signUP : {
         url : `${backendDomin}/api/signup`,
-        method : "POST"
+        method : "post"
     },
     signIn : {
         url : `${backendDomin}/api/signin`,
-        method : "POST"
+        method : "post"
     },
     current_user : {
         url : `${backendDomin}/api/user-details`,
-        method : "GET"
+        method : "get"
     },
     logout_user : {
         url : `${backendDomin}/api/userLogout`,
-        method : "GET"
+        method : 'get'
     },
     allUser : {
-        url : `${backendDomin}/api/all-users`,
-        method : "GET"
+        url : `${backendDomin}/api/all-user`,
+        method : 'get'
     },
     updateUser : {
         url : `${backendDomin}/api/update-user`,
-        method : "POST"
+        method : "post"
     },
+    uploadProduct : {
+        url : `${backendDomin}/api/upload-product`,
+        method : 'post'
+    },
+    allProduct : {
+        url : `${backendDomin}/api/get-product`,
+        method : 'get'
+    }
 }
 
-export default SummaryApi
 
+export default SummaryApi
