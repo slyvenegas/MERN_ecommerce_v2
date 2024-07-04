@@ -10,6 +10,7 @@ import {toast} from 'react-toastify'
 
 const UploadProduct = ({
     onClose,
+    fetchData
 
 }) => {
   const [data,setData] = useState({
@@ -81,6 +82,7 @@ const UploadProduct = ({
     if(responseData.success){
         toast.success(responseData?.message)
         onClose()
+        fetchData()
 
     }
 
