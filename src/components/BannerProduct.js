@@ -42,7 +42,7 @@ const BannerProduct = () => {
     }
 
     const preveImage = () =>{
-        if(currentImage != 0){
+        if(currentImage !== 0){
             setCurrentImage(preve => preve - 1)
         }
     }
